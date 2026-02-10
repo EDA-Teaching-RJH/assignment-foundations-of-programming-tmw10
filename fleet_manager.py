@@ -54,4 +54,19 @@ def remove_crew_member(names, ranks, divisions, ids):
     ids.pop(idx)
     print(f"Crew member with ID {remove_id} removed successfully.")
 
+    #Update a crew member's rank in the database
+def update_rank(names, ranks, divisions, ids):
+    update_id = int(input("Enter ID to update: "))
+    if update_id not in ids:
+        print("ID not found. No rank updated.")
+        return
+    new_rank = input("Enter new rank: ")
+    if new_rank not in ["Captain", "Commander", "Lt. Commander", "Lieutenant"]:
+        print("Invalid rank. No rank updated.")
+        return
+    idx = ids.index(update_id)
+    ranks[idx] = new_rank
+    print(f"Crew member with ID {update_id} rank updated to {new_rank}.")
+
+    
     
