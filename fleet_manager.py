@@ -74,5 +74,16 @@ def display_crew(names, ranks, divisions, ids):
     for i in range(len(names)):
         print(f"ID: {ids[i]}, Name: {names[i]}, Rank: {ranks[i]}, Division: {divisions[i]}")
 
-    
+    #search for a crew member by name
+def search_crew(names, ranks, divisions, ids):
+    search_name = input("Enter name to search: ")
+    found = False
+    for i in range(len(names)):
+        if names[i].lower() == search_name.lower():
+            print(f"ID: {ids[i]}, Name: {names[i]}, Rank: {ranks[i]}, Division: {divisions[i]}")
+            found = True
+    if not found:
+        print("Crew member not found.")
+
+
     
