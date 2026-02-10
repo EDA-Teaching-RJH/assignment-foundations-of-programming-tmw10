@@ -97,7 +97,7 @@ def filter_by_division(names, ranks, divisions, ids):
             print(f"ID: {ids[i]}, Name: {names[i]}, Rank: {ranks[i]}")
     
     #calculate payroll based on rank
-    def calculate_payroll(ranks):
+def calculate_payroll(ranks):
         rank_values = {"Captain": 100000, "Commander": 75000, "Lt. Commander": 50000, "Lieutenant": 30000}
         total_payroll = 0
         for rank in ranks:
@@ -105,7 +105,39 @@ def filter_by_division(names, ranks, divisions, ids):
         print(f"Total payroll: ${total_payroll}")
 
     #count officers by rank
-    def count_officers(ranks):
+def count_officers(ranks):
         officer_count = sum(1 for rank in ranks if rank in ["Captain", "Commander"])
 
         print(f"Number of officers: {officer_count}")
+
+    #Main function to run the system
+def main():
+    names, ranks, divisions, ids = init_database()
+    while True:
+        choice = display_menu()
+        if choice == 1:
+            display_crew(names, ranks, divisions, ids)
+        elif choice == 2: 
+            add_crew_member(names, ranks, divisions, ids)
+        elif choice == 3:
+            remove_crew_member(names, ranks, divisions, ids)
+        elif choice == 4:                   
+            update_rank(names, ranks, divisions, ids)
+        elif choice == 5:
+            search_crew(names, ranks, divisions, ids)
+        elif choice == 6:
+            filter_by_division(names, ranks, divisions, ids)
+        elif choice == 7:
+            display_crew(names, ranks, divisions, ids)
+        elif choice == 8:
+            calculate_payroll(ranks)
+        elif choice == 9:
+            count_officers(ranks)
+        elif choice == 10:
+            print("Exiting system. Goodbye!")
+            break
+        else:
+            print("Invalid option.")
+main()
+
+        
