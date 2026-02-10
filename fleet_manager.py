@@ -85,5 +85,14 @@ def search_crew(names, ranks, divisions, ids):
     if not found:
         print("Crew member not found.")
 
-
+    #filter crew members by division
+def filter_by_division(names, ranks, divisions, ids):
+    division = input("Enter division to filter by: ")
+    if division not in ["Command", "Operations", "Security", "Engineering"]:
+        print("Invalid division.")
+        return
+    print(f"Crew members in {division} division:")
+    for i in range(len(names)):
+        if divisions[i].lower() == division.lower():
+            print(f"ID: {ids[i]}, Name: {names[i]}, Rank: {ranks[i]}")
     
