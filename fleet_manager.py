@@ -96,3 +96,12 @@ def filter_by_division(names, ranks, divisions, ids):
         if divisions[i].lower() == division.lower():
             print(f"ID: {ids[i]}, Name: {names[i]}, Rank: {ranks[i]}")
     
+    #calculate payroll based on rank
+    def calculate_payroll(ranks):
+        rank_values = {"Captain": 100000, "Commander": 75000, "Lt. Commander": 50000, "Lieutenant": 30000}
+        total_payroll = 0
+        for rank in ranks:
+            total_payroll += rank_values.get(rank, 0)
+        print(f"Total payroll: ${total_payroll}")
+
+    
