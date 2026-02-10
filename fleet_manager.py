@@ -104,4 +104,8 @@ def filter_by_division(names, ranks, divisions, ids):
             total_payroll += rank_values.get(rank, 0)
         print(f"Total payroll: ${total_payroll}")
 
-    
+    #count officers by rank
+    def count_officers(ranks):
+        officer_count = sum(1 for rank in ranks if rank in ["Captain", "Commander"])
+
+        print(f"Number of officers: {officer_count}")
