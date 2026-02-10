@@ -68,5 +68,11 @@ def update_rank(names, ranks, divisions, ids):
     ranks[idx] = new_rank
     print(f"Crew member with ID {update_id} rank updated to {new_rank}.")
 
+    #display the crew
+def display_crew(names, ranks, divisions, ids):
+    print("Crew Roster:")
+    for i in range(len(names)):
+        print(f"ID: {ids[i]}, Name: {names[i]}, Rank: {ranks[i]}, Division: {divisions[i]}")
+
     
     
