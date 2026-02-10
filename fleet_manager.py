@@ -7,6 +7,7 @@ ids = [101, 102, 103, 104, 105]
 def init_database():
     return names, ranks, divisions, ids
 
+#display the menu of user inputs
 def display_menu():
     name = input("Enter crew member name: ")
     print("1. View Crew")
@@ -20,3 +21,22 @@ def display_menu():
     print("9. Count Officers")
     print("10. Exit")
     return int(input(f"Hello {name}, select an option: "))  
+
+#Add a crew member to the database
+def add_crew_member(names, ranks, divisions, ids):
+    new_id = int(input("Enter ID: "))
+    if new_id in ids:
+        print("ID already exists. Crew member not added.")
+        return
+    new_name = input("Enter name: ")
+    new_rank = input("Enter rank: ")
+    if new_rank not in ["Captain", "Commander", "Lt. Commander", "Lieutenant"]:
+        print("Invalid rank. Crew member not added.")
+        return
+    new_division = input("Enter division: ")
+
+    names.append(new_name)
+    ranks.append(new_rank)
+    divisions.append(new_division)
+    ids.append(new_id)
+    print("Crew member added successfully.")
